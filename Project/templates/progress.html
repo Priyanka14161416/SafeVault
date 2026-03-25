@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Downloading...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background-color: #f4f4f4;
+        }
+        #counter {
+            font-size: 50px;
+            font-weight: bold;
+            color: #2196f3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Downloading...</h1>
+    <div id="counter">0%</div>
+
+    <script>
+        let count = 0;
+        let counterElement = document.getElementById("counter");
+        let interval = setInterval(() => {
+            count++;
+            counterElement.innerText = count + "%";
+            if (count >= 100) {
+                clearInterval(interval);
+                document.querySelector("h1").innerText = "Download Complete ✅";
+            }
+        }, 50); 
+    </script>
+</body>
+</html>

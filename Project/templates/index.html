@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Saved Accounts | SafeVault{% endblock %}
+{% block content %}
+<h2>🔎 Your Saved Accounts</h2>
+<input type="text" id="search" placeholder="Search..." class="search-bar">
+<table>
+  <tr><th>Website</th><th>Username</th><th>Password</th></tr>
+  {% for site, user, pwd in accounts %}
+    <tr>
+      <td>{{ site }}</td>
+      <td>{{ user }}</td>
+      <td>{{ pwd }}</td>
+    </tr>
+  {% endfor %}
+</table>
+<script>
+document.getElementById('search').addEventListener('keyup', function () {
+  const filter = this.value.toLowerCase();
+  const rows = document.querySelectorAll("table tr:not(:first-child)");
+  rows.forEach(row => {
+    row.style.display = Array.from(row.cells).some(td =>
+      td.textContent.toLowerCase().includes(filter)) ? "" : "none";
+  });
+});
+</script>
+{% endblock %}

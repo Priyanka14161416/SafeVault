@@ -1,0 +1,102 @@
+
+
+% extends 'base.html' %}
+{% block title %}Saved Accounts | SafeVault{% endblock %}
+
+{% block content %}
+<style>footer {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #ff2d95, #d9007e);
+  color: rgb(5, 5, 5);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  user-select: none;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}</style>
+<h2>🔎 Your Saved Accounts</h2>
+
+<input type="text" id="search" placeholder="Search..." class="search-bar">
+
+{% if accounts %}
+<table>
+  <thead>
+    <tr>
+      <th>🌐 Website</th>
+      <th>👤 Username</th>
+      <th>🔐 Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for account in accounts %}
+    <tr>
+      <td>{{ account[0] if account[0] else account.website }}</td>
+      <td>{{ account[1] if account[1] else account.username }}</td>
+      <td>
+        <input type="password" value="{{ account[2] if account[2] else account.password }}" readonly class="masked-password">
+        <button type="button" onclick="togglePassword(this)">👁️</button>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p>No accounts stored yet.</p>
+{% endif %}
+
+<a href="{{ url_for('add') }}" class="button">➕ Add Another Account</a>
+
+<script>
+  function togglePassword(button) {
+    const input = button.previousElementSibling;
+    input.type = input.type === 'password' ? 'text' : 'password';
+    button.textContent = input.type === 'password' ? '👁️' : '🙈';
+  }
+
+  document.getElementById('search').addEventListener('keyup', function () {
+    const filter = this.value.toLowerCase();
+    const rows = document.querySelectorAll("table tbody tr");
+    rows.forEach(row => {
+      const cells = row.querySelectorAll('td');
+      const match = Array.from(cells).some(td => td.textContent.toLowerCase().includes(filter));
+      row.style.display = match ? '' : 'none';
+    });
+  });
+</script>
+
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+
+  .masked-password {
+    border: none;
+    background: none;
+    font-family: monospace;
+    width: 90%;
+  }
+
+  button {
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+</style>
+{% endblock %}

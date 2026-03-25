@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Home | SafeVault{% endblock %}
+
+{% block content %}
+<style>
+.footer2 {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #90f5e4, #f34dae);
+  color: rgb(3, 3, 3);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  user-select: none;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+</style>
+
+<section class="hero">
+  <h1>Welcome to SafeVault 🔐</h1>
+  <p>Your secure and simple password manager.</p>
+  <a href="{{ url_for('add') }}" class="cta-button">Add a New Account</a>
+</section>
+
+<section class="features">
+  <h2>Why Choose SafeVault?</h2>
+  <div class="feature-list">
+    <div class="feature-item">
+      <h3>🔐 Secure Storage</h3>
+      <p>We use strong encryption to keep your passwords safe and private.</p>
+    </div>
+    <div class="feature-item">
+      <h3>⚡ Fast Access</h3>
+      <p>Quickly retrieve and manage your stored credentials with ease.</p>
+    </div>
+    <div class="feature-item">
+      <h3>📱 Easy to Use</h3>
+      <p>User-friendly interface optimized for all devices.</p>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <h2>How It Works</h2>
+  <ol>
+    <li>Create an account and log in.</li>
+    <li>Add your account credentials securely.</li>
+    <li>Access and manage your passwords anytime.</li>
+  </ol>
+</section>
+
+<section class="testimonial">
+  <h2>What Our Users Say</h2>
+  <blockquote>
+    “SafeVault gives me peace of mind knowing my credentials are safe and accessible only by me. Highly recommend!”
+    <footer class="footer2">- A satisfied user</footer>
+  </blockquote>
+</section>
+{% endblock %}

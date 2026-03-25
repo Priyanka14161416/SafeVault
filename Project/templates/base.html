@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Password Manager{% endblock %}</title>
+  
+  <!-- Your existing stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- Font Awesome CDN for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <nav>
+    <div class="logo">🔐 SafeVault</div>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('services') }}">Services</a></li>
+      <li><a href="{{ url_for('add') }}">Add</a></li>
+      <li><a href="{{ url_for('list_accounts') }}">List</a></li>
+      <li><a href="{{ url_for('help') }}">help</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="toggle-container">
+    <label class="switch">
+      <input type="checkbox" id="featureToggle">
+      <span class="slider round"></span>
+    </label>
+    <span id="toggleStatus">Deactivated</span>
+  </div>
+
+  <div class="main-content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <footer>
+    &copy; 2025 SafeVault | Password Manager. All rights reserved.
+    <div class="social-icons">
+      <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+        <i class="fab fa-instagram"></i><span class="active-dot"></span>
+      </a>
+      <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i><span class="active-dot"></span>
+      </a>
+      <a href="https://twitter.com" target="_blank" class="social-icon" aria-label="Twitter">
+        <i class="fab fa-twitter"></i><span class="active-dot"></span>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i><span class="active-dot"></span>
+      </a>
+      <a href="https://github.com" target="_blank" class="social-icon" aria-label="GitHub">
+        <i class="fab fa-github"></i><span class="active-dot"></span>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('featureToggle');
+    const statusText = document.getElementById('toggleStatus');
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedState = localStorage.getItem('featureToggle');
+      if (savedState === 'true') {
+        toggle.checked = true;
+        document.body.classList.add('active-feature');
+        statusText.textContent = 'Activated';
+      } else {
+        toggle.checked = false;
+        document.body.classList.remove('active-feature');
+        statusText.textContent = 'Deactivated';
+      }
+    });
+
+    toggle.addEventListener('change', function () {
+      const isActive = this.checked;
+      localStorage.setItem('featureToggle', isActive);
+      if (isActive) {
+        document.body.classList.add('active-feature');
+        statusText.textContent = 'Activated';
+      } else {
+        document.body.classList.remove('active-feature');
+        statusText.textContent = 'Deactivated';
+      }
+    });
+  </script>
+</body>
+</html>
