@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Add Account | SafeVault{% endblock %}
+{% block content %}
+<h2>🔐 Add a New Account to SafeVault</h2>
+<style>footer 
+{
+  text-align: center;
+  padding: 20px;
+  background: rgb(255, 93, 193);
+  color: rgb(3, 3, 3);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  user-select: none;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}</style>
+
+<form method="POST" class="add-form" style="max-width: 400px; margin: auto; padding: 1.5em; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f9f9f9;">
+  
+  <label for="website" style="font-weight: 600; margin-top: 1em; display: block;">🌐 Website:</label>
+  <input type="text" name="website" id="website" placeholder="e.g., example.com" required style="width: 100%; padding: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+  
+  <label for="username" style="font-weight: 600; margin-top: 1em; display: block;">👤 Username:</label>
+  <input type="text" name="username" id="username" placeholder="Your username" required style="width: 100%; padding: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+  
+  <label for="password" style="font-weight: 600; margin-top: 1em; display: block;">🔑 Password:</label>
+  <input type="password" name="password" id="password" placeholder="Strong password" required style="width: 100%; padding: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+  
+  <button type="submit" style="margin-top: 1em; margin-bottom: 1.5em; padding: 0.7em 1.5em; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease;">
+    💾 Save Account
+  </button>
+</form>
+
+<p style="text-align: center; margin-top: 1em; margin-bottom: 1em;">
+  <a href="{{ url_for('list_accounts') }}" style="text-decoration: none; color: #555; font-weight: 600;">🔙 Back to Account List</a>
+</p>
+{% endblock %}

@@ -1,0 +1,164 @@
+
+{% extends 'base.html' %}
+
+{% block title %}About Us | SafeVault{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #030303;
+    color: #333;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  header h1, header p {
+    opacity: 0;
+    animation: fadeZoom 1s ease forwards;
+  }
+
+  header h1 {
+    font-size: 2.8em;
+    color: #222;
+    animation-delay: 0.2s;
+  }
+
+  header p {
+    font-size: 1.2em;
+    color: #555;
+    animation-delay: 0.4s;
+  }
+
+  .section {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #f9f9f9;
+    border-left: 4px solid #4CAF50;
+    border-radius: 6px;
+  }
+
+  .section:nth-of-type(1) {
+    animation-delay: 0.6s;
+  }
+
+  .section:nth-of-type(2) {
+    animation-delay: 0.8s;
+  }
+
+  .section:nth-of-type(3) {
+    animation-delay: 1s;
+  }
+
+  h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+
+  ul li:nth-child(1) { animation-delay: 1.2s; }
+  ul li:nth-child(2) { animation-delay: 1.4s; }
+  ul li:nth-child(3) { animation-delay: 1.6s; }
+  ul li:nth-child(4) { animation-delay: 1.8s; }
+  ul li:nth-child(5) { animation-delay: 2.0s; }
+  ul li:nth-child(6) { animation-delay: 2.2s; }
+
+  ul li::before {
+    margin-right: 10px;
+    color: #4CAF50;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #0e0d0d;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2.2em;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeZoom {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<div class="container">
+  <header>
+    <h1>About SafeVault</h1>
+    <p>Empowering digital security with innovation, elegance, and strength.</p>
+  </header>
+
+  <div class="section">
+    <h2>Who We Are</h2>
+    <p>
+      SafeVault was founded by Priyanka and Aesha with a vision to make digital security both accessible and exceptional.
+      Combining deep technical expertise with modern design principles, we aim to redefine the way individuals and teams
+      protect their most sensitive data.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>What We Do</h2>
+    <ul>
+      <li>End-to-end encryption for maximum data protection</li>
+      <li>Biometric authentication & two-factor security</li>
+      <li>Autofill tools for passwords and payment methods</li>
+      <li>Password health reports and breach alerts</li>
+      <li>Seamless encrypted syncing across devices</li>
+      <li>Secure data sharing for teams and families</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Our Philosophy</h2>
+    <p>
+      Inspired by a blend of strength and elegance, SafeVault believes security doesn’t have to be boring. We bring a bold
+      yet sophisticated approach to cybersecurity — one that empowers users without overwhelming them.
+    </p>
+  </div>
+</div>
+{% endblock %}

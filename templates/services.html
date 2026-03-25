@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Services | SafeVault{% endblock %}
+
+{% block content %}
+<style>
+  .header {
+    background-color: #0d1b2a;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .service-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-10px);
+  }
+  .service-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #0d1b2a;
+  }
+  .service-description {
+    font-size: 0.95rem;
+    color: #555;
+  }
+</style>
+
+<div class="header" data-aos="fade-down">
+  <h1>Our Services</h1>
+  <p>SafeVault — Secure, Reliable, Trusted</p>
+</div>
+
+<div class="services">
+  <div class="service-card" data-aos="fade-up">
+    <h3 class="service-title">Cloud Backup</h3>
+    <p class="service-description">Secure cloud storage solutions to back up your critical data.</p>
+  </div>
+  <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+    <h3 class="service-title">Data Encryption</h3>
+    <p class="service-description">End-to-end encryption to protect your information from threats.</p>
+  </div>
+  <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+    <h3 class="service-title">Access Control</h3>
+    <p class="service-description">Granular permissions and access policies to protect your organization.</p>
+  </div>
+  <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+    <h3 class="service-title">Password Storage</h3>
+    <p class="service-description">Secure password vault with encryption and auto-fill support.</p>
+  </div>
+  <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+    <h3 class="service-title">Encrypted Database</h3>
+    <p class="service-description">All your credentials are stored in a fully encrypted database.</p>
+  </div>
+  <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+    <h3 class="service-title">Searchable Credentials</h3>
+    <p class="service-description">Quickly find what you need using intelligent search tools.</p>
+  </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+{% endblock %}

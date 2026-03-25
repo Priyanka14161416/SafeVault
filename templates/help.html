@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title %}Help & Support | SafeVault{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #3d6497;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #90f5e4, #f34dae);
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 0 25px #ff69b4aa;
+    color: #050505;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p.description {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: #1759d3;
+  }
+
+  .faq-item {
+    border-top: 1px solid #ff85c1;
+    padding: 15px 0;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  label.faq-question {
+    font-weight: 700;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-right: 30px;
+    transition: color 0.3s ease;
+  }
+
+  label.faq-question:hover {
+    color: #eb6161;
+  }
+
+  label.faq-question::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  input[type="checkbox"]:checked + label.faq-question::after {
+    content: "-";
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding-left: 10px;
+    color: #050505;
+  }
+
+  input[type="checkbox"]:checked + label.faq-question + .faq-answer {
+    max-height: 500px;
+    padding: 10px 0 20px;
+  }
+
+  .faq-answer p {
+    margin: 0;
+    line-height: 1.4;
+  }
+</style>
+
+<div class="container">
+  <h1>SafeVault Help Center</h1>
+  <p class="description">
+    Welcome to SafeVault’s Help Center! Find answers to common questions and learn how to secure your data with our app.
+  </p>
+
+  <div class="faq">
+    <div class="faq-item">
+      <input type="checkbox" id="faq1">
+      <label for="faq1" class="faq-question">🔒 How to Create an Account</label>
+      <div class="faq-answer">
+        <p>Learn the step-by-step process to sign up and start protecting your files instantly.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq2">
+      <label for="faq2" class="faq-question">🔑 Resetting Your Password</label>
+      <div class="faq-answer">
+        <p>If you forget your password, click "Forgot Password" on the login screen and follow the email verification process to reset it safely.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq3">
+      <label for="faq3" class="faq-question">🔐 Using Two-Factor Authentication</label>
+      <div class="faq-answer">
+        <p>Enable 2FA to add an extra layer of security to your SafeVault account.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq4">
+      <label for="faq4" class="faq-question">💾 Backing Up Your Vault</label>
+      <div class="faq-answer">
+        <p>Keep your data safe by backing up your vault regularly and restoring it when needed.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq5">
+      <label for="faq5" class="faq-question">📂 Where is my data stored?</label>
+      <div class="faq-answer">
+        <p>Your encrypted password data is securely stored on our cloud servers using AES-256 encryption.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq6">
+      <label for="faq6" class="faq-question">🛠 How do I report a bug or issue?</label>
+      <div class="faq-answer">
+        <p>You can report bugs via our in-app feedback form or support channel.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
